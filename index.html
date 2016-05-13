@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Raven Test</title>
+    <link rel="icon" type="image/x-icon" href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
+
+    <link rel="stylesheet" href="//js.arcgis.com/3.15/esri/css/esri.css">
+    <link rel="stylesheet" href="//cityofphiladelphia.github.io/patterns/dist/1.2.1/css/patterns.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+  </head>
+  <body>
+    <!-- Google Tag Manager [phila.gov] -->
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC6CR2"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MC6CR2');</script>
+    <!-- End Google Tag Manager -->
+
+    <!--[if lte IE 8]>
+      <p class="browsehappy alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="application" class="page">
+
+      <div id="raven-litmus">Raven is not available yet.</div>
+
+    </div> <!-- End templates -->
+
+    <!--[if !IE 8]><!-->
+
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation.min.js"></script>
+    <script src="//cityofphiladelphia.github.io/patterns/dist/1.2.1/js/patterns.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+    
+    <!-- Use defer below so that the ArcGIS library loads after the page is
+         completely parsed.
+         https://geonet.esri.com/message/448542#comment-469973
+         https://github.com/Esri/angular-esri-map/issues/38#issuecomment-91439901
+    -->
+    <script src="//js.arcgis.com/3.15/" defer></script>
+    
+    <!-- <script src="https://cdn.ravenjs.com/3.0.1/raven.min.js"></script> -->
+    <script src="//maps.googleapis.com/maps/api/js?v=3&libraries=geometry"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+    <script>
+    function testForRaven() {
+      if (!window.Raven) {
+        setTimeout(testForRaven, 100);
+        return;
+      }
+
+      document.getElementById('raven-litmus').innerHTML = 'Raven is loaded!'
+    }
+
+    testForRaven();
+    </script>
+
+    <!--<![endif]-->
+  </body>
+</html>
